@@ -11,15 +11,15 @@
     <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="body__container">
     <header class="homepage">
-        <input type="checkbox" class="checkbox" id="navbar__checkbox">
+        <input type="checkbox" class="nav__checkbox" id="navbar__checkbox">
         <label for="navbar__checkbox" class="navbar__toggle"><span></span></label>
         <nav class="navbar__wrapper">
             <ul class="navbar">
                 <li><a href="#skills">Skills</a></li>
                 <li><a href="#projects">Projects</a></li>
-                <li><a href="#">About</a></li>
+                <li><a href="#about">About</a></li>
                 <li><a href="#">Resume</a></li>
                 <li><a href="#" id="navbar__contact">Contact</a></li>
             </ul>
@@ -29,76 +29,109 @@
             <h2>Front-end developer and student.</h2>
             <img src="/WebDevProjects/portfolio/portfolioIcons/My_Logo_Gradient.svg" alt="personal logo">
         </section>
-        <img src="/WebDevProjects/portfolio/portfolioIcons/Arrow_down_white.svg" alt="down arrow" class="navarrow">
+        <a href="#skills" class="navarrow"><img src="/WebDevProjects/portfolio/portfolioIcons/Arrow_down_white.svg" alt="down arrow"></a>
     </header>
     <main>
         <section class="skills__section" id="skills">
-            <div class="skills__card skills__card__left">
-                <h3>Object Oriented Languages</h3>
-                <div class="svg__wrapper">
-                    <div class="svg__label"><p>Java</p><img src="/WebDevProjects/Portfolio/portfolioIcons/java-SVG.svg" alt="java logo" class="skills__svg"></div>
-                    <div class="svg__label"><p>Python</p><img src="/WebDevProjects/Portfolio/portfolioIcons/python-SVG.svg" alt="python logo" class="skills__svg"></div>
+            <h3>.myToolbox</h3>
+            <div class="skills__card__wrapper">
+                <div class="skills__card">
+                    <img src="/WebDevProjects/Portfolio/portfolioIcons/javascript-SVG.svg" alt="javascript logo" class="skills__svg">
+                    <h4>Javascript</h4>
                 </div>
-            </div>
-            <div class="skills__card skills__card__center">
-                <h3>Web Development</h3>
-                <div class="svg__wrapper">
-                    <div class="svg__label"><p>HTML</p><img src="/WebDevProjects/Portfolio/portfolioIcons/html5-SVG.svg" alt="html logo" class="skills__svg"></div>
-                    <div class="svg__label"><p>CSS</p><img src="/WebDevProjects/Portfolio/portfolioIcons/css3-SVG.svg" alt="css logo" class="skills__svg"></div>
+                <div class="skills__card">
+                    <img src="/WebDevProjects/Portfolio/portfolioIcons/html5-SVG.svg" alt="html logo" class="skills__svg">
+                    <h4>HTML</h4>
                 </div>
-                <div class="svg__wrapper">
-                    <div class="svg__label"><p>Javascript</p><img src="/WebDevProjects/Portfolio/portfolioIcons/javascript-SVG.svg" alt="javascript logo" class="skills__svg"></div>
-                    <div class="svg__label"><p>React</p><img src="/WebDevProjects/Portfolio/portfolioIcons/react-SVG.svg" alt="react logo" class="skills__svg"></div>
+                <div class="skills__card">
+                    <img src="/WebDevProjects/Portfolio/portfolioIcons/css3-SVG.svg" alt="css logo" class="skills__svg">
+                    <h4>CSS</h4>
                 </div>
-            </div>
-            <div class="skills__card skills__card__right">
-                <h3>Version Control and Design</h3>
-                <div class="svg__wrapper">
-                    <div class="svg__label"><p>Git</p><img src="/WebDevProjects/Portfolio/portfolioIcons/git-SVG.svg" alt="git logo" class="skills__svg"></div>
-                    <div class="svg__label"><p>Figma</p><img src="/WebDevProjects/Portfolio/portfolioIcons/figma-SVG.svg" alt="figma logo" class="skills__svg"></div>
+                <div class="skills__card">
+                    <img src="/WebDevProjects/Portfolio/portfolioIcons/react-SVG.svg" alt="react logo" class="skills__svg">
+                    <h4>React</h4>
+                </div>
+                <div class="skills__card">
+                    <img src="/WebDevProjects/Portfolio/portfolioIcons/node-SVG.svg" alt="node logo" class="skills__svg">
+                    <h4>Node</h4>
+                </div>
+                <div class="skills__card">
+                    <img src="/WebDevProjects/Portfolio/portfolioIcons/java-SVG.svg" alt="java logo" class="skills__svg">
+                    <h4>Java</h4>
+                </div>
+                <div class="skills__card">
+                    <img src="/WebDevProjects/Portfolio/portfolioIcons/python-SVG.svg" alt="python logo" class="skills__svg">
+                    <h4>Java</h4>
+                </div>
+                <div class="skills__card">
+                    <img src="/WebDevProjects/Portfolio/portfolioIcons/git-SVG.svg" alt="git logo" class="skills__svg">
+                    <h4>Git</h4>
+                </div>
+                <div class="skills__card">
+                    <img src="/WebDevProjects/Portfolio/portfolioIcons/figma-SVG.svg" alt="figma logo" class="skills__svg">
+                    <h4>Figma</h4>
                 </div>
             </div>
         </section>
         <section class="projects__section" id="projects">
-            <div class="projects">
-                <div class="projects__preview projects__preview__1">
-                    <img src="/WebDevProjects/Portfolio/portfolioIcons/tributepage.jpg" alt="project one preview">
-                </div>
-                <div class="projects__description">
-                    <h4>Tribute Page</h4>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam, quam quae! Iure odit unde ullam quibusdam voluptatibus dolor aperiam earum.</p>
-                    <a href="#">&lt/code&gt</a>
-                </div>
+            <div class="projects__preview projects__preview__1">
+                <img src="/WebDevProjects/Portfolio/portfolioIcons/tributepage.jpg" alt="project one preview">
             </div>
-            <div class="projects projects__2">
-                <div class="projects__description projects__description__2">
-                    <h4>Tribute Page</h4>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam, quam quae! Iure odit unde ullam quibusdam voluptatibus dolor aperiam earum.</p>
-                    <a href="#">&lt/code&gt</a>
-                </div>
-                <div class="projects__preview projects__preview__2">
-                    <img src="/WebDevProjects/Portfolio/portfolioIcons/tributepage.jpg" alt="project one preview">
-                </div>
+            <div class="projects__description projects__description__1">
+                <h4>Tribute Page</h4>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam, quam quae! Iure odit unde ullam quibusdam voluptatibus dolor aperiam earum.</p>
+                <a href="#">&lt/code&gt</a>
             </div>
-            <div class="projects projects__3">
-                <div class="projects__preview projects__preview__3">
-                    <img src="/WebDevProjects/Portfolio/portfolioIcons/tributepage.jpg" alt="project one preview">
-                </div>
-                <div class="projects__description">
-                    <h4>Tribute Page</h4>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam, quam quae! Iure odit unde ullam quibusdam voluptatibus dolor aperiam earum.</p>
-                    <a href="#">&lt/code&gt</a>
-                </div>
+            <div class="projects__description projects__description__2">
+                <h4>Product Landing</h4>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam, quam quae! Iure odit unde ullam quibusdam voluptatibus dolor aperiam earum.</p>
+                <a href="#">&lt/code&gt</a>
             </div>
-            <div class="projects projects__4">
-                <div class="projects__description projects__description__4">
-                    <h4>Tribute Page</h4>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam, quam quae! Iure odit unde ullam quibusdam voluptatibus dolor aperiam earum.</p>
-                    <a href="#">&lt/code&gt</a>
+            <div class="projects__preview projects__preview__2">
+                <img src="/WebDevProjects/Portfolio/portfolioIcons/itemlanding.jpg" alt="project one preview">
+            </div>
+            <div class="projects__preview projects__preview__3">
+                <img src="/WebDevProjects/Portfolio/portfolioIcons/techdoc.jpg" alt="project one preview">
+            </div>
+            <div class="projects__description">
+                <h4>Technical Docs</h4>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam, quam quae! Iure odit unde ullam quibusdam voluptatibus dolor aperiam earum.</p>
+                <a href="#">&lt/code&gt</a>
+            </div>
+            <div class="projects__description projects__description__4">
+                <h4>Survey Forms</h4>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam, quam quae! Iure odit unde ullam quibusdam voluptatibus dolor aperiam earum.</p>
+                <a href="#">&lt/code&gt</a>
+            </div>
+            <div class="projects__preview projects__preview__4">
+                <img src="/WebDevProjects/Portfolio/portfolioIcons/survey.jpg" alt="project one preview">
+            </div>
+        </section>
+        <section class="aboutme__section" id="about">
+            <input type="checkbox" class="logo__description__checkbox" id="aboutme__logo__checkbox">
+            <div class="aboutme__logo__description">
+                <p>You've discovered my personal logo!</p><br>
+                <p>I created this logo from scratch to have something unique and recognizable that I could stamp on my personal work.</p><br>
+                <p>The original inspiration from my logo comes from my name. The curvature of the logo is inspired from the S 
+                    initial of my first name. The body of the logo is inspired by the yin and yang, more specifically the Yang half.</p><br>
+                <p>Then with a little creativity, I was able to create this custom personal logo.</p>
+            </div>
+            <div class="aboutme__logo">
+                <label for="aboutme__logo__checkbox" class="logo__description__toggle">
+                <div class="whatsthis">
+                    <img src="/WebDevProjects/Portfolio/portfolioIcons/left-arrow.svg" alt="left arrow">
+                    <p>What's this?</p>
                 </div>
-                <div class="projects__preview projects__preview__4">
-                    <img src="/WebDevProjects/Portfolio/portfolioIcons/tributepage.jpg" alt="project one preview">
-                </div>
+                </label>
+                <img src="/WebDevProjects/Portfolio/portfolioIcons/My_Logo_Gradient.svg" alt="main logo">
+            </div>
+            <div class="aboutme__description">
+                <h3>.aboutMe</h3>
+                <p>Hey there! My name is Sykong Yang and I'm a developer currently working on front-end projects. Soon I'll wrapping up my bachelors degree in Computer Science. 
+                    However, I am never done learning and constantly honing my skills as a developer.</p>
+                    <br><p>Becoming a developer is result of my passion to build and design things. I am very driven by my desire to create quality and 
+                        functional products with the goal of constantly bettering my programming abilities.</p>
+                     <br><p>When I'm not programming, I'll probably be on the other side of the spectrum surrounded by nature.</p>
             </div>
         </section>
     </main>
