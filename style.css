@@ -9,8 +9,8 @@ html{
 :root{
     font-size: 16px;
     --main-font: "Chakra Petch";
-    --main-bg-color: rgb(10,10,10);
-    --second-bg-color: rgb(35,35,35);
+    --main-bg-color: rgb(15,15,15);
+    --second-bg-color: rgb(35, 35, 35);
     --yellow-font: #fff500;
     --green-font: #61FF00;
     --white-font: rgb(255,255,255);
@@ -29,8 +29,9 @@ html{
 .body__container{
     width: 100%;
     height: 100%;
-    background:linear-gradient(60deg, var(--main-bg-color) 55%, rgb(40,40,40));
+    background:linear-gradient(60deg, var(--main-bg-color) 45%, rgb(40,40,40));
     background-attachment: fixed;
+    overflow-x: hidden;
 }
 
 /* HOME PAGE */
@@ -43,9 +44,19 @@ html{
     flex-direction: column;
 }
 .navbar__wrapper{
-    height: 3rem;
+    height: 3.25rem;
     width: 100%;
+    position: fixed;
     z-index: 1;
+    box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.705);
+}
+.navbar__wrapper::before{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    box-shadow: inset 0 0 100rem 0 rgb(40,40,40);
+    backdrop-filter: blur(10px);
 }
 .navbar{
     display: flex;
@@ -55,11 +66,16 @@ html{
 .navbar li{
     list-style: none;
     padding: 1rem;
+    z-index: 2;
 }
 .navbar a{
     text-decoration: none;
     color: var(--white-font);
     font-size: 1.1rem;
+}
+.navbar a:hover{
+    color: rgb(1, 255, 221);
+    transition: all .5s ease 0s;
 }
 #navbar__contact{
     border: 2px solid;
@@ -75,7 +91,7 @@ html{
 .navbar__toggle{
     background-color: rgba(0, 255, 255, 0);
     height: 1.75rem;
-    position: absolute;
+    position: fixed;
     width: 2rem;
     top: .85rem;
     z-index: 2;
@@ -115,13 +131,15 @@ html{
     .navbar__wrapper{
         transform: translateY(-13.5rem);
     }
+    .navbar__wrapper::before{
+        transform: translateY(13.5rem);
+    }
     .navbar__toggle:hover{
         cursor: pointer;
     }
     .navbar{
         flex-direction: column;
         align-items: center;
-        background-color: rgb(29,29,29);
     }
     #navbar__contact{
         margin-right: 0;
@@ -132,6 +150,11 @@ html{
     #navbar__checkbox:checked ~ .navbar__wrapper{
         transform: translateY(0);
         transition: all .1s ease 0s;
+    }
+    #navbar__checkbox:checked ~ .navbar__wrapper::before{
+        height: 520%;
+        transition: all .1s ease 0s;
+        transform: translateY(0);
     }
     #navbar__checkbox:checked ~ .navbar__toggle span::before{
         transform: rotate(45deg);
@@ -217,6 +240,16 @@ html{
     justify-content: space-between;
     position: relative;
 }
+.background__graphics{
+    position: absolute;
+    opacity: 1%;
+}
+#keyboard__svg{
+    width: 100rem;
+    z-index: -5;
+    left: -30rem;
+    transform: rotate(35deg);
+}
 .skills__section h3{
     font-size: 4rem;
     width: 40%;
@@ -226,6 +259,7 @@ html{
     font-weight: 100;
     letter-spacing: .2rem;
     position: relative;
+    text-shadow: 0px 0px 10px black;
 }
 .skills__section h3::after{
     content: '';
@@ -247,15 +281,35 @@ html{
 .skills__card__wrapper{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    width: 50%;
-    gap: 1rem;
+    width: 30%;
     margin: auto;
+    gap: 1rem;
+    position: relative;
+}
+.skills__card__wrapper::before{
+    content: '';
+    position: absolute;
+    width: 2px;
+    height: 200px;
+    background: var(--main-gradient);
+    opacity: 50%;
+    left: 50%;
+    top: -15rem;
+}
+.skills__card__wrapper::after{
+    content: '';
+    position: absolute;
+    width: 2px;
+    height: 300px;
+    background: var(--main-gradient);
+    left: 50%;
+    bottom: -22rem;
+    opacity: 50%;
 }
 .skills__card{
     color: var(--white-font);
-    height: 15rem;
-    min-height: 13rem;
-    max-width: 13rem;
+    height: 12rem;
+    width: 95%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -267,9 +321,10 @@ html{
 .skills__card::before{
     content: '';
     position: absolute;
-    background-color: rgb(30,30,30,.25);
-    filter: blur(5px);
-    inset: 1px;
+    width: 100%;
+    height: 100%;
+    box-shadow: inset 0 0 10rem 0 rgba(30, 30, 30, 0.5);
+    backdrop-filter: blur(10px);
     border-radius: 10px;
     z-index: -1;
 }
@@ -279,7 +334,7 @@ html{
     transition: all .1s ease 0s;
 }
 .skills__svg{
-    width: 130px;
+    width: 100px;
 }
 @media screen and (max-width: 900px){
     .skills__section{
@@ -294,6 +349,9 @@ html{
         width: auto;
         position: absolute;
         top: 15rem;
+    }
+    .skills__card{
+        width: 95%;
     }
 }
 
@@ -410,7 +468,8 @@ html{
     }
     .projects__description a,
     .projects__description h4,
-    .projects__description p{
+    .projects__description p,
+    .projects__description{
         justify-content: center;
         justify-self: center;
         align-self: center;
@@ -449,13 +508,13 @@ html{
     height: 1rem;
     place-self: center;
     border-radius: 10px;
-    background-color: rgb(255, 255, 0);
+    background-color: rgb(1, 255, 221);
     visibility: hidden;
 }
 .aboutme__logo__description::after{
     content: '';
     position: absolute;
-    background-color: rgb(10,10,10);
+    background-color: var(--main-bg-color);
     inset: 4px;
     border-radius: 10px;
     transition: all .1s ease 0s;
@@ -487,23 +546,24 @@ html{
     display: none;
 }
 .logo__description__checkbox:checked ~ .aboutme__logo__description{
-    background-color: rgb(15,15,15, 0.5);
+    background-color: transparent;
     color: var(--white-font);
     transform: translateY(-10px);
     box-shadow: -4px 8px 20px 3px rgba(0, 0, 0, 0.5);
-    transition: all .5s linear 2s;
+    transition: all .5s linear 1s;
 }
 .logo__description__checkbox:checked ~ .aboutme__logo__description p{
     visibility: visible;
-    transition: all .5s linear 2s;
+    transition: all .5s linear 1s;
 }
 .logo__description__checkbox:checked ~ .aboutme__logo__description::before{
     visibility: visible;
-    animation: border--anim 2s linear 1;
+    animation: border--anim 1s linear 1;
 }
 .logo__description__checkbox:checked ~ .aboutme__logo__description::after{
-    background-color: rgb(15,15,15, 0.5);
-    transition: all .5s linear 2s;
+    box-shadow: inset 0 0 100rem 0 rgb(30,30,30);
+    backdrop-filter: blur(10px);
+    transition: all .5s linear 1s;
 }
 .aboutme__logo{
     margin-left: 3rem;
