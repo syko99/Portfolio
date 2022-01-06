@@ -149,14 +149,14 @@ html{
     width: 100%;
     position: fixed;
     z-index: 1;
-    box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.705);
 }
 .navbar__wrapper::before{
     content: '';
     position: absolute;
     width: 100%;
     height: 100%;
-    box-shadow: inset 0 0 100rem 0 var(--second-bg-color);
+    box-shadow: inset 0 0 1rem 0 var(--second-bg-color),
+    0 0 15px 0 rgba(0, 0, 0, 0.705);
     backdrop-filter: blur(10px);
 }
 .navbar{
@@ -197,6 +197,7 @@ html{
     top: .85rem;
     z-index: 2;
     right: 1rem;
+    transform: translateX(10rem);
 }
 .navbar__toggle span{
     position: absolute;
@@ -241,6 +242,9 @@ html{
     }
     #navbar__contact{
         margin-right: 0;
+    }
+    .navbar__toggle{
+        transform: translateX(0);
     }
     .navbar__toggle span{
         visibility: visible;
@@ -366,11 +370,17 @@ html{
     height: 3.5rem;
     top: .75rem;
     margin-left: .25rem;
-    animation: blinking .6s ease infinite;
+    animation: blinking 1s linear infinite;
 }
 @keyframes blinking {
     0%{
         background-color: transparent;
+    }
+    45%{
+        background-color: transparent;
+    }
+    50%{
+        background-color: white;
     }
     100%{
         background-color: white;
@@ -384,26 +394,6 @@ html{
     gap: 1rem;
     position: relative;
 }
-/* .skills__card__wrapper::before{
-    content: '';
-    position: absolute;
-    width: 100px;
-    height: 2px;
-    background: var(--main-gradient);
-    opacity: 50%;
-    justify-self: center;
-    top: -2rem;
-}
-.skills__card__wrapper::after{
-    content: '';
-    position: absolute;
-    width: 2px;
-    height: 300px;
-    background: var(--main-gradient);
-    left: 50%;
-    bottom: -22rem;
-    opacity: 50%;
-} */
 .skills__card{
     color: var(--white-font);
     height: 12rem;
@@ -415,7 +405,7 @@ html{
     justify-self: center;
     border-radius: 10px;
     position: relative;
-    box-shadow: -4px 8px 20px 0px rgba(0, 0, 0, .5),
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, .5),
     inset 0 0 20rem 0 rgba(50, 50, 50, 0.75);
     backdrop-filter: blur(5px);
 }
@@ -465,7 +455,6 @@ html{
 }
 .projects__preview{
     display: flex;
-    width: 100%;
     align-items: center;
 }
 .projects__description{
@@ -512,7 +501,7 @@ html{
     width: 95%;
     max-width: 40rem;
     aspect-ratio: 16/9;
-    box-shadow: -4px 8px 20px 5px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 20px 2px rgba(0, 0, 0, .5);
 }
 .projects__description h4{
     color: var(--white-font);
@@ -570,155 +559,149 @@ html{
         margin-bottom: 5rem;
     }
 }
+
+/* ===== ABOUT ME ===== */
 .aboutme__section{
-    display: flex;
-    flex-direction: row;
-    color: var(--white-font);
-    justify-content: center;
-    align-items: center;
-    padding: 5rem 0;
+    padding: 10rem 0;
 }
-.aboutme__logo__description{
-    width: 30rem;
-    height: 20rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    padding: 1rem;
-    border-radius: 10px;
-    background-color: rgb(12,12,12);
-    transition: all .1s ease 0s;
+.aboutme__card{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 5fr;
+    grid-template-areas: 
+    "aboutme aboutme"
+    "desc logo";
+    margin:auto;
+    color: var(--white-font);
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.5),
+    inset 0 0 10rem 30rem rgba(50, 50, 50, 0.5);
+    backdrop-filter: blur(5px);
+    width: 60%;
+    height: 35rem;
+    padding: 2rem;
+    gap: 2rem;
+    place-items: center;
     position: relative;
     overflow: hidden;
-    grid-area: logo_desc;
 }
-.aboutme__logo__description::before{
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 1rem;
-    place-self: center;
-    border-radius: 10px;
-    background-color: rgb(1, 255, 221);
-    visibility: hidden;
-}
-.aboutme__logo__description::after{
-    content: '';
-    position: absolute;
-    background-color: var(--main-bg-color);
-    inset: 4px;
-    border-radius: 10px;
-    transition: all .1s ease 0s;
-}
-.aboutme__logo__description p{
-    max-width: clamp(45ch, 50%, 75ch);
-    z-index: 2;
-    visibility: hidden;
-}
-@keyframes border--anim {
-    0%{
-        transform: rotate(0deg);
-        width: 200%;
-    }
-    100%{
-        transform: rotate(360deg);
-        width: 200%;
-    }
-}
-@keyframes self--vis {
-    0%{
-        visibility: visible;
-    }
-    100%{
-        visibility: hidden;
-    }
-}
-.logo__description__checkbox{
-    display: none;
-}
-.logo__description__checkbox:checked ~ .aboutme__logo__description{
-    background-color: transparent;
-    color: var(--white-font);
-    transform: translateY(-10px);
-    box-shadow: -4px 8px 20px 3px rgba(0, 0, 0, 0.5);
-    transition: all .5s linear 1s;
-}
-.logo__description__checkbox:checked ~ .aboutme__logo__description p{
-    visibility: visible;
-    transition: all .5s linear 1s;
-}
-.logo__description__checkbox:checked ~ .aboutme__logo__description::before{
-    visibility: visible;
-    animation: border--anim 1s linear 1;
-}
-.logo__description__checkbox:checked ~ .aboutme__logo__description::after{
-    box-shadow: inset 0 0 100rem 0 rgb(30,30,30);
-    backdrop-filter: blur(10px);
-    transition: all .5s linear 1s;
-}
-.aboutme__logo{
-    margin-left: 3rem;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-around;
-    width: 16%;
-    grid-area: logo;
-}
-.whatsthis{
-    display: flex;
-    gap: .2rem;
-    opacity: 10%;
-    cursor: pointer;
-}
-.whatsthis:hover{
-    opacity: 100%;
-    transition: all .1s ease 0s;
-    gap: .5rem;
-}
-.aboutme__description{
-    display: flex;
-    flex-direction: column;
-    padding: 5rem;
-    line-height: 1.5rem;
-    text-shadow: 0px 0px 10px black;
-    width: 40%;
-    grid-area: aboutme;
-}
-.aboutme__description h3{
+.aboutme__card h3{
     font-size: 4rem;
     color: var(--white-font);
-    font-weight: var(--light-font);
-    padding-bottom: 3rem;
+    font-weight: var(--bold-font);
+    padding-bottom: 2rem;
+    grid-area: aboutme;
     position: relative;
 }
-
-.aboutme__description p{
+.aboutme__card h3::after{
+    content: '';
+    position: absolute;
+    width: 17.5rem;
+    height: .5rem;
+    bottom: 2rem;
+    left: 0;
+    background: linear-gradient(45deg, rgb(0, 174, 255),rgb(0, 255, 85),rgb(255, 251, 0));
+    background-size: 300% 300%;
+    animation: gradient-shift 5s ease-in-out infinite;
+}
+.aboutme__description{
+    text-shadow: 0px 0px 10px black;
     max-width: clamp(45ch, 50%, 75ch);
+    font-weight: var(--light-font);
+    line-height: 2rem;
+    justify-self: center;
+    align-self: center;
+    grid-area: desc;
+    width: 100%;
+}
+.aboutme__logo__card{
+    display: flex;
+    flex-direction: column;
+    grid-area: logo;
+    justify-content: center;
+    align-items: center;
+    gap: 15rem;
+    position: absolute;
+    transform: translateY(15rem);
+}
+.logo__side{
+    text-align: center;
+    cursor: pointer;
+}
+.logo__side img{
+    animation: wiggle 2s linear infinite;
+}
+.logo__desc__side{
+    max-width: clamp(45ch, 50%, 75ch);
+    line-height: 2rem;
+    font-weight: var(--light-font);
+    box-shadow: inset 0 0 100rem 1rem rgba(0, 255, 242, 0.089);
+    border-radius: 5px;
+    padding: 1rem;
+}
+.logo__checkbox{
+    display: none;
+}
+.logo__checkbox:checked ~ .aboutme__logo__card{
+    animation: fling-reveal 2s linear forwards;
+    transition: all 1s ease 0s;
+}
+@keyframes fling-reveal {
+    0%{
+        transform: translateY(15rem);
+    }
+    20%{
+        transform: translateY(17rem);
+    }
+    40%{
+        transform: translateY(-15.5rem);
+    }
+    100%{
+        transform: translateY(-15.5rem);
+    }
+}
+@keyframes wiggle {
+    0%{
+        transform: rotate(0deg);
+    }
+    75%{
+        transform: rotate(0deg);
+    }
+    80%{
+        transform: rotate(5deg);
+    }
+    85%{
+        transform: rotate(-5deg);
+    }
+    90%{
+        transform: rotate(5deg);
+    }
+    100%{
+        transform: rotate(0deg);
+    }
+}
+@keyframes gradient-shift {
+    0%{
+        background-position: 0% 50%;
+    }
+    50%{
+        background-position: 100% 50%;
+    }
+    100%{
+        background-position: 0% 50%;
+    }
 }
 @media screen and (max-width: 1000px) {
-    .aboutme__section{
+    .aboutme__card{
         display: grid;
+        height: 60rem;
         grid-template-columns: auto;
         grid-template-rows: 3fr 1fr 2fr;
         grid-template-areas: 
         "aboutme"
-        "logo"
-        "logo_desc";
-        place-items: center;
+        "desc"
+        "logo";
         overflow: hidden;
-    }
-    .aboutme__description{
-        width: 70%;
-        text-align: center;
-    }
-    .aboutme__logo__description{
-        max-width: 80%;
-    }
-    .whatsthis img{
-        display: none;
-    }
-    .whatsthis{
-        width: 7rem;
+        gap: 2rem;
+        place-items: center;
     }
 }
