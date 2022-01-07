@@ -1,6 +1,5 @@
 <svg width="150" height="150" viewBox="0 0 150 150" fill="none" xmlns="http://www.w3.org/2000/svg">
-<g clip-path="url(#clip0_163_6)">
-<path d="M57 56C60 19 19.5 38.5 -2 42.5" stroke="white" stroke-width="2" stroke-linecap="round"/>
+<path d="M57 56C65 28.5 29 40.5 6.5 45.5" stroke="white" stroke-width="2" stroke-linecap="round"/>
 <mask id="path-2-inside-1_163_6" fill="white">
 <rect x="37" y="56" width="75" height="37.5" rx="1"/>
 </mask>
@@ -35,10 +34,4 @@
 <rect x="102.5" y="68.5" width="5" height="5" rx="0.5" stroke="white"/>
 <rect x="102.5" y="60.5" width="5" height="5" rx="0.5" stroke="white"/>
 <rect x="94.5" y="60.5" width="5" height="5" rx="0.5" stroke="white"/>
-</g>
-<defs>
-<clipPath id="clip0_163_6">
-<rect width="150" height="150" fill="white"/>
-</clipPath>
-</defs>
 </svg>

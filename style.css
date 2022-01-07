@@ -15,24 +15,23 @@ html{
     --yellow-font: #fff500;
     --green-font: #61FF00;
     --white-font: rgb(255,255,255);
-    --blue-font: #00A3FF;
+    --cyan-font: rgb(1, 255, 221);
     --light-font: 300;
     --bold-font: 800;
     --main-gradient: linear-gradient(to top right, #00D1FF, #FAFF00);
 }
 ::-webkit-scrollbar{
     width: .5rem;
-    background: var(--second-bg-color);
+    background: var(--main-bg-color);
 }
 ::-webkit-scrollbar-thumb{
-    background: var(--main-gradient);
+    background: white;
 }
 .body__container{
     width: 100%;
     height: 100%;
     background:var(--main-bg-color);
     background-attachment: fixed;
-    overflow-x: hidden;
 }
 
 /* ===== BACKGROUND =====*/
@@ -44,6 +43,7 @@ html{
     width: 100%;
     background-size: cover;
     background-position: center;
+    z-index: -10;
     animation:  floating-stars-down 150s linear infinite;
 }
 #stars2{
@@ -54,7 +54,8 @@ html{
     top: -1080px;
     background-size: cover;
     background-position: center;
-    animation:  floating-stars-down 100s linear infinite;
+    z-index: -10;
+    animation:  floating-stars-down 120s linear infinite;
 }
 #stars3{
     position: fixed;
@@ -63,7 +64,8 @@ html{
     width: 100%;
     background-size: cover;
     background-position: center;
-    animation:  floating-stars-up 120s linear infinite;
+    z-index: -10;
+    animation:  floating-stars-up 150s linear infinite;
 }
 #stars4{
     position: fixed;
@@ -73,6 +75,7 @@ html{
     top: 1080px;
     background-size: cover;
     background-position: center;
+    z-index: -10;
     animation:  floating-stars-up 120s linear infinite;
 }
 #stars5{
@@ -82,6 +85,7 @@ html{
     width: 100%;
     background-size: cover;
     background-position: center;
+    z-index: -10;
     animation:  floating-stars-sway 120s linear infinite;
 }
 #stars6{
@@ -92,6 +96,7 @@ html{
     transform: translateX(-1920px);
     background-size: cover;
     background-position: center;
+    z-index: -10;
     animation:  floating-stars-sway 120s linear infinite;
 }
 @keyframes floating-stars-up {
@@ -142,22 +147,12 @@ html{
     height: 100vh;
     display: flex;
     flex-direction: column;
-    text-shadow: 0px 0px 10px black;
 }
 .navbar__wrapper{
     height: 3.5rem;
     width: 100%;
     position: fixed;
-    z-index: 1;
-}
-.navbar__wrapper::before{
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    box-shadow: inset 0 0 1rem 0 var(--second-bg-color),
-    0 0 15px 0 rgba(0, 0, 0, 0.705);
-    backdrop-filter: blur(10px);
+    z-index: 2;
 }
 .navbar{
     display: flex;
@@ -167,7 +162,6 @@ html{
 .navbar li{
     list-style: none;
     padding: 1rem;
-    z-index: 2;
 }
 .navbar a{
     text-decoration: none;
@@ -176,26 +170,31 @@ html{
 }
 .navbar a:hover{
     color: rgb(1, 255, 221);
-    transition: all .5s ease 0s;
+    transition: all .2s ease 0s;
 }
 #navbar__contact{
-    border: 2px solid;
-    border-image: var(--main-gradient);
-    border-image-slice: 1;
+    border: 2px solid var(--cyan-font);
+    color: var(--cyan-font);
     padding: .25rem .75rem;
     font-weight: var(--bold-font);
-    background: var(--main-gradient);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    margin-right: 7rem;
+    transition: all .1s ease 0s;
+}
+#navbar__contact:hover{
+    border: 2px solid var(--cyan-font);
+    background-color: var(--cyan-font);
+    color: var(--main-bg-color);
+    padding: .25rem .75rem;
+    font-weight: var(--bold-font);
     margin-right: 7rem;
 }
 .navbar__toggle{
-    background-color: rgba(0, 255, 255, 0);
+    background-color: rgba(0, 0, 0, 0);
     height: 1.75rem;
     position: fixed;
     width: 2rem;
     top: .85rem;
-    z-index: 2;
+    z-index: 3;
     right: 1rem;
     transform: translateX(10rem);
 }
@@ -239,6 +238,9 @@ html{
     .navbar{
         flex-direction: column;
         align-items: center;
+        box-shadow: inset 0 0 1rem 0 var(--second-bg-color),
+        0 0 3rem 0 rgba(0, 0, 0);
+        backdrop-filter: blur(1rem);
     }
     #navbar__contact{
         margin-right: 0;
@@ -253,11 +255,6 @@ html{
         transform: translateY(0);
         transition: all .1s ease 0s;
     }
-    #navbar__checkbox:checked ~ .navbar__wrapper::before{
-        height: 520%;
-        transition: all .1s ease 0s;
-        transform: translateY(0);
-    }
     #navbar__checkbox:checked ~ .navbar__toggle span::before{
         transform: rotate(45deg);
         transition: all .1s ease 0s;
@@ -270,41 +267,65 @@ html{
         background-color: rgb(0,0,0,0);
         transition: all .1s ease 0s;
     }
+    .sticky__navbar{
+        display: none;
+    }
 }
 .homepage__welcome{
     color: var(--white-font);
     position: relative;
-    display: grid;
+    display: flex;
+    flex-direction: column;
     width: 100%;
-    height: inherit;
-    grid-template-columns: 1fr 1fr;
-    grid-row: 1fr 1fr;
-    grid-template-areas: 
-    "h1 logo"
-    "h2 logo";
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
 }
 .homepage__welcome h1{
     font-size: 6rem;
-    font-weight: var(--light-font);
-    grid-area: h1;
-    place-self: end;
-    text-align: right;
+    position: relative;
+    overflow: hidden;
+    color: transparent;
+    animation: visible-text 0.75s linear forwards;
+}
+.homepage__welcome h1::after{
+    content: '';
+    position: absolute;
+    background-color: var(--cyan-font);
+    inset: 0;
+    width: 200%;
+    left: -200%;
+    animation: right-reveal 1.5s linear 0.25s forwards;
 }
 .homepage__welcome h2{
     font-size: 1rem;
     font-weight: var(--light-font);
-    grid-area: h2;
-    justify-self: end;
     padding-right: .5rem;
+    position: relative;
+    overflow: hidden;
+    color: transparent;
+    animation: visible-text 1s linear forwards;
+}
+.homepage__welcome h2::after{
+    content: '';
+    position: absolute;
+    background-color: white;
+    inset: 0;
+    width: 200%;
+    left: -200%;
+    animation: right-reveal 1.5s linear 0.5s forwards;
 }
 .homepage__welcome img{
-    grid-area: logo;
-    align-self: center;
-    padding-left: 1rem;
+    width: 175px;
+    transform: translateY(5rem);
+    position: relative;
+    opacity: 0;
+    animation: fade-reveal 1s ease 2s forwards;
 }
 .navarrow{
     align-self: center;
-    animation: floating 1.5s ease 0s infinite;
+    animation: floating 1.5s ease infinite;
 }
 .navarrow img{
     width: 5rem;
@@ -331,39 +352,60 @@ html{
         transform: translateY(-1rem);
     }
 }
+@keyframes right-reveal {
+    100%{
+        left: 200%;
+    }
+}
+@keyframes visible-text {
+    99%{
+        color: transparent;
+    }
+    100%{
+        color: white;
+    }
+}
+@keyframes fade-reveal {
+    to{
+        opacity: 100%;
+    }
+}
 
-/* ===== SKILLS ===== */
 
-.skills__section{
-    height: 150vh;
+/* ===== ABOUT ME ===== */
+
+.sticky__navbar{
     width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    height: 3.5rem;
+    box-shadow: inset 0 0 10rem 0 var(--second-bg-color),
+    0 5px 2rem 0 rgba(0, 0, 0,0.5);
+    backdrop-filter: blur(1rem);
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+.aboutme__section{
+    min-height: 100vh;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 8fr;
+    grid-template-areas: 
+    "aboutme aboutme"
+    "aboutme__card skills__card";
     position: relative;
+    place-items: center;
+    padding-top: 5rem;
 }
-.background__graphics{
-    position: absolute;
-    opacity: 1%;
-}
-#keyboard__svg{
-    width: 100rem;
-    z-index: -5;
-    left: -30rem;
-    transform: rotate(35deg);
-}
-.skills__section h3{
+.aboutme__section h3{
     font-size: 4rem;
-    width: 40%;
-    align-self: center;
-    text-align: center;
     color: var(--white-font);
-    font-weight: 100;
     letter-spacing: .2rem;
     position: relative;
     text-shadow: 0px 0px 10px black;
+    grid-area: aboutme;
 }
-.skills__section h3::after{
+.aboutme__section h3::after{
     content: '';
     position: absolute;
     width: .2rem;
@@ -371,6 +413,90 @@ html{
     top: .75rem;
     margin-left: .25rem;
     animation: blinking 1s linear infinite;
+}
+.aboutme__card__wrapper{
+    display: flex;
+    flex-direction: column;
+    color: var(--white-font);
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.5),
+    inset 0 0 10rem 30rem rgba(50, 50, 50, 0.5);
+    backdrop-filter: blur(5px);
+    width: 60%;
+    height: 40rem;
+    padding: 2rem;
+    gap: 2rem;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+.logo__button img{
+    width: 175px;
+    animation: wiggle 2s linear infinite;
+    cursor: pointer;
+}
+.personal__desc{
+    grid-area: desc;
+    line-height: 2rem;
+    max-width: 45ch;
+}
+.logo__desc{
+    box-shadow: inset 0 0 100rem 1rem rgba(0, 255, 242, 0.089);
+    border-radius: 5px;
+    max-width: 45ch;
+    padding: 1rem;
+    transform: translateY(1rem);
+}
+.logo__checkbox:checked ~ {
+    animation: slide-reveal 2s linear forwards;
+    transition: all 1s ease 0s;
+}
+#keyboard__svg{
+    position: absolute;
+    opacity: 1%;
+    width: 100rem;
+    z-index: -5;
+    left: -30rem;
+    top: 0;
+    transform: rotate(35deg);
+}
+.logo__checkbox{
+    display: none;
+}
+@keyframes slide-reveal {
+    0%{
+        transform: translateX(0);
+    }
+}
+@keyframes wiggle {
+    0%{
+        transform: rotate(0deg);
+    }
+    75%{
+        transform: rotate(0deg);
+    }
+    80%{
+        transform: rotate(5deg);
+    }
+    85%{
+        transform: rotate(-5deg);
+    }
+    90%{
+        transform: rotate(5deg);
+    }
+    100%{
+        transform: rotate(0deg);
+    }
+}
+@keyframes gradient-shift {
+    0%{
+        background-position: 0% 50%;
+    }
+    50%{
+        background-position: 100% 50%;
+    }
+    100%{
+        background-position: 0% 50%;
+    }
 }
 @keyframes blinking {
     0%{
@@ -386,18 +512,22 @@ html{
         background-color: white;
     }
 }
+
+
+/* ===== SKILLS ===== */
+
+
 .skills__card__wrapper{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    width: 30%;
-    margin: auto;
     gap: 1rem;
     position: relative;
+    grid-area: skills__card;
 }
 .skills__card{
     color: var(--white-font);
     height: 12rem;
-    width: 95%;
+    width: 8rem;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -416,24 +546,16 @@ html{
     transition: all .1s ease 0s;
 }
 .skills__svg{
-    width: 100px;
+    width: 80px;
 }
 @media screen and (max-width: 900px){
-    .skills__section{
-        flex-direction: column;
-    }
-    .skills__card__wrapper{
-        width: 95%;
-        padding: 0;
-        margin: auto;
-    }
-    .skills__section h3{
-        width: auto;
-        position: absolute;
-        top: 15rem;
-    }
-    .skills__card{
-        width: 95%;
+    .aboutme__section{
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 5fr 5fr;
+        grid-template-areas: 
+        "aboutme"
+        "aboutme__card"
+        "skills__card";
     }
 }
 
@@ -517,9 +639,9 @@ html{
     max-width: 45ch;
 }
 .projects__description a{
-    color: var(--blue-font);
+    color: var(--cyan-font);
     text-decoration: none;
-    border: 1px solid var(--blue-font);
+    border: 1px solid var(--cyan-font);
     padding: .25rem;
     width: 4rem;
 }
@@ -560,148 +682,3 @@ html{
     }
 }
 
-/* ===== ABOUT ME ===== */
-.aboutme__section{
-    padding: 10rem 0;
-}
-.aboutme__card{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 5fr;
-    grid-template-areas: 
-    "aboutme aboutme"
-    "desc logo";
-    margin:auto;
-    color: var(--white-font);
-    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.5),
-    inset 0 0 10rem 30rem rgba(50, 50, 50, 0.5);
-    backdrop-filter: blur(5px);
-    width: 60%;
-    height: 35rem;
-    padding: 2rem;
-    gap: 2rem;
-    place-items: center;
-    position: relative;
-    overflow: hidden;
-}
-.aboutme__card h3{
-    font-size: 4rem;
-    color: var(--white-font);
-    font-weight: var(--bold-font);
-    padding-bottom: 2rem;
-    grid-area: aboutme;
-    position: relative;
-}
-.aboutme__card h3::after{
-    content: '';
-    position: absolute;
-    width: 17.5rem;
-    height: .5rem;
-    bottom: 2rem;
-    left: 0;
-    background: linear-gradient(45deg, rgb(0, 174, 255),rgb(0, 255, 85),rgb(255, 251, 0));
-    background-size: 300% 300%;
-    animation: gradient-shift 5s ease-in-out infinite;
-}
-.aboutme__description{
-    text-shadow: 0px 0px 10px black;
-    max-width: clamp(45ch, 50%, 75ch);
-    font-weight: var(--light-font);
-    line-height: 2rem;
-    justify-self: center;
-    align-self: center;
-    grid-area: desc;
-    width: 100%;
-}
-.aboutme__logo__card{
-    display: flex;
-    flex-direction: column;
-    grid-area: logo;
-    justify-content: center;
-    align-items: center;
-    gap: 15rem;
-    position: absolute;
-    transform: translateY(15rem);
-}
-.logo__side{
-    text-align: center;
-    cursor: pointer;
-}
-.logo__side img{
-    animation: wiggle 2s linear infinite;
-}
-.logo__desc__side{
-    max-width: clamp(45ch, 50%, 75ch);
-    line-height: 2rem;
-    font-weight: var(--light-font);
-    box-shadow: inset 0 0 100rem 1rem rgba(0, 255, 242, 0.089);
-    border-radius: 5px;
-    padding: 1rem;
-}
-.logo__checkbox{
-    display: none;
-}
-.logo__checkbox:checked ~ .aboutme__logo__card{
-    animation: fling-reveal 2s linear forwards;
-    transition: all 1s ease 0s;
-}
-@keyframes fling-reveal {
-    0%{
-        transform: translateY(15rem);
-    }
-    20%{
-        transform: translateY(17rem);
-    }
-    40%{
-        transform: translateY(-15.5rem);
-    }
-    100%{
-        transform: translateY(-15.5rem);
-    }
-}
-@keyframes wiggle {
-    0%{
-        transform: rotate(0deg);
-    }
-    75%{
-        transform: rotate(0deg);
-    }
-    80%{
-        transform: rotate(5deg);
-    }
-    85%{
-        transform: rotate(-5deg);
-    }
-    90%{
-        transform: rotate(5deg);
-    }
-    100%{
-        transform: rotate(0deg);
-    }
-}
-@keyframes gradient-shift {
-    0%{
-        background-position: 0% 50%;
-    }
-    50%{
-        background-position: 100% 50%;
-    }
-    100%{
-        background-position: 0% 50%;
-    }
-}
-@media screen and (max-width: 1000px) {
-    .aboutme__card{
-        display: grid;
-        height: 60rem;
-        grid-template-columns: auto;
-        grid-template-rows: 3fr 1fr 2fr;
-        grid-template-areas: 
-        "aboutme"
-        "desc"
-        "logo";
-        overflow: hidden;
-        gap: 2rem;
-        place-items: center;
-    }
-}
