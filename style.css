@@ -186,7 +186,6 @@ html{
     color: var(--main-bg-color);
     padding: .25rem .75rem;
     font-weight: var(--bold-font);
-    margin-right: 7rem;
 }
 .navbar__toggle{
     background-color: rgba(0, 0, 0, 0);
@@ -385,7 +384,7 @@ html{
     z-index: 1;
 }
 .aboutme__section{
-    min-height: 100vh;
+    min-height: 90vh;
     width: 100%;
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -398,9 +397,8 @@ html{
     padding-top: 5rem;
 }
 .aboutme__section h3{
-    font-size: 4rem;
+    font-size: 5rem;
     color: var(--white-font);
-    letter-spacing: .2rem;
     position: relative;
     text-shadow: 0px 0px 10px black;
     grid-area: aboutme;
@@ -409,7 +407,7 @@ html{
     content: '';
     position: absolute;
     width: .2rem;
-    height: 3.5rem;
+    height: 4.5rem;
     top: .75rem;
     margin-left: .25rem;
     animation: blinking 1s linear infinite;
@@ -418,8 +416,7 @@ html{
     display: flex;
     flex-direction: column;
     color: var(--white-font);
-    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.5),
-    inset 0 0 10rem 30rem rgba(50, 50, 50, 0.5);
+    box-shadow:inset 0 0 10rem 30rem rgba(30,30,30,0.75);
     backdrop-filter: blur(5px);
     width: 60%;
     height: 40rem;
@@ -437,34 +434,68 @@ html{
 .personal__desc{
     grid-area: desc;
     line-height: 2rem;
+    font-weight: var(--light-font);
     max-width: 45ch;
+    animation: return 1s linear forwards;
 }
-.logo__desc{
-    box-shadow: inset 0 0 100rem 1rem rgba(0, 255, 242, 0.089);
-    border-radius: 5px;
-    max-width: 45ch;
-    padding: 1rem;
-    transform: translateY(1rem);
+.bigtext{
+    font-size: 2rem;
+    font-weight: var(--bold-font);
 }
-.logo__checkbox:checked ~ {
-    animation: slide-reveal 2s linear forwards;
+.aboutme__card__color{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
     transition: all 1s ease 0s;
 }
-#keyboard__svg{
-    position: absolute;
-    opacity: 1%;
-    width: 100rem;
-    z-index: -5;
-    left: -30rem;
-    top: 0;
-    transform: rotate(35deg);
+.logo__desc{
+    max-width: 45ch;
+    line-height: 2rem;
+    font-weight: 500;
+    transform: translateY(10rem);
+}
+.logo__checkbox:checked ~ .personal__desc{
+    animation: slide-reveal-1 2s linear forwards;
+    transition: all 1s ease 0s;
+}
+.logo__checkbox:checked ~ .logo__desc{
+    animation: slide-reveal-2 2s linear forwards;
+    transition: all 1s ease 0s;
+}
+.logo__checkbox:checked ~ .aboutme__card__color{
+    box-shadow: inset 0 0 100rem 10rem rgba(0, 255, 242, 0.089);
+    backdrop-filter: blur(10px);
 }
 .logo__checkbox{
     display: none;
 }
-@keyframes slide-reveal {
+@keyframes slide-reveal-1 {
     0%{
-        transform: translateX(0);
+        transform: translateY(0rem);
+    }
+    10%{
+        transform: translateY(-3rem);
+    }
+    30%{
+        transform: translateY(30rem);
+    }
+    100%{
+        transform: translateY(30rem);
+    }
+}
+@keyframes slide-reveal-2 {
+    0%{
+        transform: translateY(10rem);
+    }
+    40%{
+        transform: translateY(10rem);
+    }
+    60%{
+        transform: translateY(-27rem);
+    }
+    100%{
+        transform: translateY(-27rem);
     }
 }
 @keyframes wiggle {
@@ -512,11 +543,17 @@ html{
         background-color: white;
     }
 }
-
-
-/* ===== SKILLS ===== */
-
-
+@keyframes return {
+    0%{
+        transform: translateY(30rem);
+    }
+    50%{
+        transform: translateY(0);
+    }
+    100%{
+        transform: translateY(0);
+    }
+}
 .skills__card__wrapper{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -533,20 +570,40 @@ html{
     align-items: center;
     justify-content: space-around;
     justify-self: center;
+    border: 2px solid var(--cyan-font);
     border-radius: 10px;
     position: relative;
-    box-shadow: 0 0 20px 0 rgba(0, 0, 0, .5),
-    inset 0 0 20rem 0 rgba(50, 50, 50, 0.75);
     backdrop-filter: blur(5px);
 }
 .skills__card:hover{
     transform: translateY(-5px);
-    box-shadow: -4px 8px 30px 1px rgba(0, 0, 0, .5),
-    inset 0 0 20rem 0 rgba(50, 50, 50, 0.75);
     transition: all .1s ease 0s;
 }
 .skills__svg{
     width: 80px;
+}
+@media screen and (max-width: 1264px) {   
+    .personal__desc{
+        font-size: 12px;
+    }
+    .logo__desc{
+        font-size: 12px;
+    }
+    
+@keyframes slide-reveal-2 {
+    0%{
+        transform: translateY(10rem);
+    }
+    40%{
+        transform: translateY(10rem);
+    }
+    60%{
+        transform: translateY(-30rem);
+    }
+    100%{
+        transform: translateY(-30rem);
+    }
+}
 }
 @media screen and (max-width: 900px){
     .aboutme__section{
@@ -556,17 +613,21 @@ html{
         "aboutme"
         "aboutme__card"
         "skills__card";
+        text-align: center;
     }
 }
 
+
 /* ===== PROJECTS ===== */
+
 
 .projects__section{
     position: relative;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: repeat(4, 1fr);
+    grid-template-rows: 1fr repeat(4, 3fr);
     grid-template-areas: 
+    "header header"
     "preview_1 description_1"
     "description_2 preview_2"
     "preview_3 description_3"
@@ -575,9 +636,45 @@ html{
     column-gap: 3rem;
     padding: 10rem 0;
 }
+.projects__section__header{
+    color: white;
+    font-size: 5rem;
+    grid-area: header;
+    position: relative;
+    width: fit-content;
+    justify-self: center;
+    text-align: center;
+}
+
+.projects__section__header::after{
+    content: '';
+    position: absolute;
+    width: .2rem;
+    height: 4.5rem;
+    top: .75rem;
+    margin-left: .25rem;
+    animation: blinking 1s linear infinite;
+}
+.cyan__text{
+    color: var(--cyan-font);
+}
 .projects__preview{
     display: flex;
     align-items: center;
+    position: relative;
+}
+.projects__preview__1::before,
+.projects__preview__2::before,
+.projects__preview__3::before,
+.projects__preview__4::before{
+    content: '';
+    position: absolute;
+    width: 40rem;
+    height: 30rem;
+    right: 10rem;
+    box-shadow: inset 0 0 10rem 10rem rgb(50,50,50,0.5);
+    backdrop-filter: blur(5px);
+    z-index: -1;
 }
 .projects__description{
     display: flex;
@@ -624,12 +721,17 @@ html{
     max-width: 40rem;
     aspect-ratio: 16/9;
     box-shadow: 0 0 20px 2px rgba(0, 0, 0, .5);
+    position: relative;
 }
 .projects__description h4{
     color: var(--white-font);
     font-weight: var(--bold-font);
     font-size: 4rem;
     padding-bottom: 2rem;
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: .2rem;
+    text-decoration-color: var(--cyan-font);
 }
 .projects__description p{
     color: var(--white-font);
@@ -646,12 +748,27 @@ html{
     width: 4rem;
 }
 
+#keyboard__svg{
+    position: absolute;
+    opacity: 1%;
+    width: 100rem;
+    z-index: -5;
+    left: -30rem;
+    top: 0;
+    transform: rotate(35deg);
+}
+@keyframes slider {
+    0%{
+        transform: translateX();
+    }
+}
 @media screen and (max-width: 807px) {
     /* below changes projects into single column grid for smaller screens. */
     .projects__section{
         grid-template-columns: 1fr;
-        grid-template-rows: repeat(8, 1fr);
+        grid-template-rows: repeat(9, 1fr);
         grid-template-areas:
+        "header"
         "preview_1"
         "description_1"
         "preview_2"
@@ -680,5 +797,98 @@ html{
     .projects__description{
         margin-bottom: 5rem;
     }
+    .projects__preview__1::before,
+    .projects__preview__2::before,
+    .projects__preview__3::before,
+    .projects__preview__4::before{
+        height: 25rem;
+}
 }
 
+/* ===== CONTACT SECTION ===== */
+
+.contact__section{
+    height: 50vh;
+    width: 100%;
+    position: relative;
+    display: grid;
+    place-items: center;
+}
+.contact__card{
+    display: flex;
+    flex-direction: column;
+    color: rgb(150,150,150);
+    box-shadow: inset 0 0 100rem 100rem rgba(25,25,25,0.9);
+    backdrop-filter: blur(10px);
+    width: 80%;
+    max-width: 35rem;
+    padding: 3rem 0;
+    position: relative;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+    z-index: 1;
+}
+.contact__card h3{
+    font-size: 4rem;
+}
+.contact__card h5{
+    font-weight: var(--light-font);
+    opacity: 2%;
+    position: absolute;
+    top: 7rem;
+}
+#mail__icon{
+    animation: wiggle 2s ease infinite;
+    cursor: pointer;
+}
+
+/* ===== FOOTER SECTION =====*/
+footer{
+    display: grid;
+    place-items: center;
+    height: 4rem;
+    width: 100%;
+    box-shadow: 0 0 100rem 10rem rgba(4, 247, 255, 0.281),
+    inset 0 0 100rem 2rem rgba(4, 247, 255, 0.24);
+    background: var(--main-bg-color);
+    position: relative;
+}
+footer::before{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 8rem;
+    top: -8rem;
+    background: var(--main-bg-color);
+    z-index: -1;
+}
+footer h6{
+    color: white;
+    font-size: 1rem;
+    font-weight: 100;
+}
+footer img{
+    position: absolute;
+    top: -1rem;
+    right: 2rem;
+    animation: floating-slow 4s ease infinite;
+}
+.copywrite__mark{
+    position: absolute;
+    left: 1rem;
+    top: .75rem;
+}
+@keyframes floating-slow {
+    0%{
+        transform: translateY(0) ;
+    }
+    50%{
+        transform: translateY(-.5rem);
+    }
+    100%{
+        transform: translateY(0);
+    }
+
+}

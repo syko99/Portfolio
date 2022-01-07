@@ -26,7 +26,7 @@
                 <li><a href="#aboutme">About</a></li>
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#">Resume</a></li>
-                <li><a href="#" id="navbar__contact">Contact</a></li>
+                <li><a href="#contact" id="navbar__contact">Contact</a></li>
             </ul>
         </nav>
         <section class="homepage__welcome" id="home">
@@ -40,16 +40,16 @@
         <div class="sticky__navbar"></div>
         <section class="aboutme__section" id="aboutme">
             <h3>About Me</h3>
-            <img src="/WebDevProjects/Portfolio/portfolioIcons/keyboard_svg.svg" alt="" class="background__graphics" id="keyboard__svg">
             <div class="aboutme__card__wrapper">
                 <input type="checkbox" class="logo__checkbox" id="logo__button__checkbox">
+                <div class="aboutme__card__color"></div>
                 <label for="logo__button__checkbox">
                     <div class="logo__button">
                         <img src="/WebDevProjects/Portfolio/portfolioIcons/My_Logo_Gradient.svg" alt="main logo">
                     </div>
                 </label>
                 <div class="personal__desc">
-                    <p>Hey there! My name is Sykong Yang and I'm a developer wrapping up a bachelors in Computer Science.
+                    <p><span class="bigtext">Hey there!</span> <br>My name is Sykong Yang and I'm a developer wrapping up a bachelors in Computer Science.
                     With that being said, I am never done learning or exploring and constantly honing my skills as a developer.</p>
                     <br>
                     <p>Becoming a developer is result of my passion to build and design things. I am very driven by my desire to create quality and
@@ -60,8 +60,8 @@
                 <div class="logo__desc">
                     <p>You've discovered my personal logo!</p><br>
                     <p>I created this logo from scratch to have something unique and recognizable that I could stamp on my personal work.</p><br>
-                    <p>The original inspiration from my logo comes from my name. The curvature of the logo is inspired from the S
-                        initial of my first name. The body of the logo is inspired by the yin and yang, more specifically the Yang half.</p><br>
+                    <p>The curvature of the logo is inspired from the S initial of my first name. The body of the logo is inspired by the yin and yang,
+                         more specifically the Yang half from my last name.</p><br>
                     <p>Then with a little creativity, I was able to create this custom personal logo.</p>
                 </div>
             </div>
@@ -105,6 +105,8 @@
             </div>
         </section>
         <section class="projects__section" id="projects">
+            <img src="/WebDevProjects/Portfolio/portfolioIcons/keyboard_svg.svg" alt="" class="background__graphics" id="keyboard__svg">
+            <h3 class="projects__section__header">Things <span class="cyan__text">I</span>'ve Done</h3>
             <div class="projects__preview projects__preview__1">
                 <img src="/WebDevProjects/Portfolio/portfolioIcons/tributepage.jpg" alt="project one preview">
             </div>
@@ -138,12 +140,18 @@
                 <img src="/WebDevProjects/Portfolio/portfolioIcons/survey.jpg" alt="project one preview">
             </div>
         </section>
-        <section class="contact__section">
-
+        <section class="contact__section" id="contact">
+            <div class="contact__card">
+                <h3>Let's work together!</h3>
+                <h5>Help me help you.</h5>
+                <a href="mailto:sykong.yang1@outlook.com"><img src="/WebDevProjects/Portfolio/portfolioIcons/Mail-Icon-Cyan-SVG.svg" alt="email icon" id="mail__icon"></a>
+            </div>
         </section>
     </main>
     <footer>
-
+        <h6>Made with  <span class="emoji">💪</span>boxes by Sykong Yang </h6>
+        <a href="#home"><img src="/WebDevProjects/Portfolio/portfolioIcons/backToTop-SVG.svg" alt=""></a>
+        <p class="copywrite__mark">©️2022</p>
     </footer>
 </body>
 </html>
