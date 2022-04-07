@@ -38,7 +38,7 @@ html{
 
 #stars1{
     position: fixed;
-    background-image: url(/WebDevProjects/Portfolio/portfolioIcons/stars-small.svg);
+    background-image: url(/portfolioIcons/stars-small.svg);
     height: 100%;
     width: 100%;
     background-size: cover;
@@ -48,7 +48,7 @@ html{
 }
 #stars2{
     position: fixed;
-    background-image: url(/WebDevProjects/Portfolio/portfolioIcons/stars-small.svg);
+    background-image: url(/portfolioIcons/stars-small.svg);
     height: 100%;
     width: 100%;
     top: -1080px;
@@ -59,7 +59,7 @@ html{
 }
 #stars3{
     position: fixed;
-    background-image: url(/WebDevProjects/Portfolio/portfolioIcons/stars-medium.svg);
+    background-image: url(/portfolioIcons/stars-medium.svg);
     height: 100%;
     width: 100%;
     background-size: cover;
@@ -69,7 +69,7 @@ html{
 }
 #stars4{
     position: fixed;
-    background-image: url(/WebDevProjects/Portfolio/portfolioIcons/stars-medium.svg);
+    background-image: url(/portfolioIcons/stars-medium.svg);
     height: 100%;
     width: 100%;
     top: 1080px;
@@ -80,7 +80,7 @@ html{
 }
 #stars5{
     position: fixed;
-    background-image: url(/WebDevProjects/Portfolio/portfolioIcons/stars-large.svg);
+    background-image: url(/portfolioIcons/stars-large.svg);
     height: 100%;
     width: 100%;
     background-size: cover;
@@ -90,7 +90,7 @@ html{
 }
 #stars6{
     position: fixed;
-    background-image: url(/WebDevProjects/Portfolio/portfolioIcons/stars-large.svg);
+    background-image: url(/portfolioIcons/stars-large.svg);
     height: 100%;
     width: 100%;
     transform: translateX(-1920px);
