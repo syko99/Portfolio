@@ -102,7 +102,6 @@ html{
 @keyframes floating-stars-up {
     0%{
         transform: translateY(0px);
-
     }
     50%{
         transform: translateY(-500px);
@@ -114,7 +113,6 @@ html{
 @keyframes floating-stars-down {
     0%{
         transform: translateY(0px);
-
     }
     50%{
         transform: translateY(500px);
@@ -126,7 +124,6 @@ html{
 @keyframes floating-stars-sway {
     0%{
         transform: translateX(0px);
-
     }
     25%{
         transform: translateX(200px);
