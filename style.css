@@ -837,12 +837,11 @@ html{
 }
 @media screen and (max-width: 480px) {
     .projects__section__header::after{
-        top: 7rem;
+        top: 10rem;
     }
     .projects__section__header{
         font-size: 4rem;
         width: 60%;
-        transform: translateX(-2rem);
     }
     .projects__description h4{
         font-size: 3rem;
