@@ -347,6 +347,11 @@ html{
         text-align: center;
     }
 }
+@media screen and (max-width: 480px){
+    .homepage__welcome h1{
+        font-size: 5rem;
+    }
+}
 @keyframes floating {
     0%{
         transform: translateY(0) ;
@@ -627,6 +632,21 @@ html{
     .skills__card{
         width: 7.5rem;
     }
+    .aboutme__section h3{
+        font-size: 4rem;
+    }
+    .aboutme__section{
+        padding-top: 5rem;
+    }
+    .aboutme__card__wrapper{
+        place-self: start;
+        margin-left: .5rem;
+        width: 75vw;
+    }
+    .skills__card__wrapper{
+        grid-template-columns: 1fr 1fr;
+        place-self: center;
+    }
 }
 
 /* ===== PROJECTS ===== */
@@ -818,6 +838,11 @@ html{
 @media screen and (max-width: 480px) {
     .projects__section__header::after{
         top: 7rem;
+    }
+    .projects__section__header{
+        font-size: 4rem;
+        width: 60%;
+        transform: translateX(-2rem);
     }
 }
 
