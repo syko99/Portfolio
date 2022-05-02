@@ -40,7 +40,7 @@ html{
     position: fixed;
     background-image: url(portfolioIcons/stars-small.svg);
     height: 100%;
-    width: 100%;
+    width: 100vw;
     background-size: cover;
     background-position: center;
     z-index: -10;
@@ -50,7 +50,7 @@ html{
     position: fixed;
     background-image: url(portfolioIcons/stars-small.svg);
     height: 100%;
-    width: 100%;
+    width: 100vw;
     top: -1080px;
     background-size: cover;
     background-position: center;
@@ -61,7 +61,7 @@ html{
     position: fixed;
     background-image: url(portfolioIcons/stars-medium.svg);
     height: 100%;
-    width: 100%;
+    width: 100vw;
     background-size: cover;
     background-position: center;
     z-index: -10;
@@ -71,7 +71,7 @@ html{
     position: fixed;
     background-image: url(portfolioIcons/stars-medium.svg);
     height: 100%;
-    width: 100%;
+    width: 100vw;
     top: 1080px;
     background-size: cover;
     background-position: center;
@@ -82,7 +82,7 @@ html{
     position: fixed;
     background-image: url(portfolioIcons/stars-large.svg);
     height: 100%;
-    width: 100%;
+    width: 100vw;
     background-size: cover;
     background-position: center;
     z-index: -10;
@@ -92,7 +92,7 @@ html{
     position: fixed;
     background-image: url(portfolioIcons/stars-large.svg);
     height: 100%;
-    width: 100%;
+    width: 100vw;
     transform: translateX(-1920px);
     background-size: cover;
     background-position: center;
@@ -147,7 +147,7 @@ html{
 }
 .navbar__wrapper{
     height: 3.5rem;
-    width: 100%;
+    width: 100vw;
     position: fixed;
     z-index: 2;
 }
@@ -267,6 +267,13 @@ html{
         display: none;
     }
 }
+@media screen and (max-width: 480px) {
+    .navbar__toggle{
+    }
+    body{
+        overflow-x: hidden;
+    }
+}
 .homepage__welcome{
     color: var(--white-font);
     position: relative;
@@ -382,7 +389,7 @@ html{
 }
 .aboutme__section{
     min-height: 90vh;
-    width: 100%;
+    width: 100vw;
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 8fr;
@@ -613,7 +620,14 @@ html{
         text-align: center;
     }
 }
-
+@media screen and (max-width: 480px) {
+    .personal__desc{
+        line-height: 1.6rem;
+    }
+    .skills__card{
+        width: 7.5rem;
+    }
+}
 
 /* ===== PROJECTS ===== */
 
@@ -800,6 +814,11 @@ html{
     .projects__preview__4::before{
         height: 25rem;
 }
+}
+@media screen and (max-width: 480px) {
+    .projects__section__header::after{
+        top: 7rem;
+    }
 }
 
 
