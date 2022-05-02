@@ -844,6 +844,9 @@ html{
         width: 60%;
         transform: translateX(-2rem);
     }
+    .projects__description h4{
+        font-size: 3rem;
+    }
 }
 
 
@@ -885,6 +888,11 @@ html{
 #mail__icon{
     animation: wiggle 2s ease infinite;
     cursor: pointer;
+}
+@media screen and (max-width: 480px) {
+    .contact__card h3{
+        font-size: 3rem;
+    }
 }
 
 
