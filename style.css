@@ -916,3 +916,8 @@ footer img:hover{
     }
 
 }
+@media screen and (max-width: 480px) {
+    footer img{
+        right: 1rem;
+    }
+}
